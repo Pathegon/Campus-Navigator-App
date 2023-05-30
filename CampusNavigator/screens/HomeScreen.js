@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, Text, TextInput, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Image, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
+
+const { width, height } = Dimensions.get('window');
 
 const Screen2 = () => {
   const locations = [
@@ -16,8 +18,12 @@ const Screen2 = () => {
 
   return (
     <View style={styles.container}>
-      {/* Previous screen content */}
-      
+      <View style={styles.header}>
+        <Text style={styles.headerTitle}>Campus Navigator</Text>
+        <Text style={styles.headerSubtitle}>Helping you navigate to FCCU with ease.</Text>
+        <Text style={styles.headerSubtitle}>A complete solution to getting lost!</Text>
+      </View>
+
       <View style={styles.popularLocationContainer}>
         <Text style={styles.popularLocationsTitle}>Popular Locations</Text>
         <Text style={styles.popularLocationsDescription}>These locations are loved by FCCU!</Text>
@@ -43,8 +49,6 @@ const Screen2 = () => {
           ))}
         </View>
       </View>
-
-      {/* Rest of the screen content */}
     </View>
   );
 };
@@ -56,8 +60,38 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#FFFFFF',
   },
-  // Previous styles
-
+  header: {
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  headerTitle: {
+    fontSize: 230,
+    fontWeight: 'bold',
+    color: '#000000',
+    textAlign: 'center',
+  },
+  headerSubtitle: {
+    fontSize: 12,
+    fontWeight: 'normal',
+    color: '#000000',
+    textAlign: 'center',
+  },
+  popularLocationContainer: {
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  popularLocationsTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#000000',
+    marginBottom: 10,
+  },
+  popularLocationsDescription: {
+    fontSize: 14,
+    fontWeight: 'normal',
+    color: '#000000',
+    marginBottom: 10,
+  },
   tilesContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -68,7 +102,7 @@ const styles = StyleSheet.create({
   tile: {
     width: width * 0.61, // 219/360
     height: height * 0.168, // 198/1178
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#EDF0F7',
     borderRadius: 10,
     marginBottom: 10,
     alignItems: 'center',
@@ -77,34 +111,26 @@ const styles = StyleSheet.create({
   },
   tileImage: {
     width: 150,
-    height: 100,
+    height: 150,
     borderRadius: 10,
-    marginBottom: 5,
+    marginBottom: 10,
   },
   tileName: {
     fontSize: 20,
     fontWeight: '600',
     color: '#000000',
-    marginBottom: 5,
+    textAlign: 'center',
   },
   tileLikeCount: {
     fontSize: 12,
-    fontWeight: '400',
+    fontWeight: 'normal',
     color: '#000000',
-    marginBottom: 5,
+    textAlign: 'center',
+    marginTop: 5,
   },
   tileHeart: {
-    position: 'absolute',
-    bottom: 5,
-    right: 5,
-    width: 20,
-    height: 20,
-    borderWidth: 1,
-    borderColor: '#000000',
-    borderRadius: 10,
-    backgroundColor: '#F9FBF2',
-    alignItems: 'center',
-    justifyContent: 'center',
+    // Add your heart icon styles here
+    // You can use an icon library or custom implementation
   },
 });
 
