@@ -12,12 +12,11 @@ const Screen2 = () => {
       <TextInput style={styles.searchBox} placeholder="Search" />
 
       <View style={styles.popularLocationContainer}>
-        <Image source={require('./armacost_building.jpg')} style={styles.locationImage} />
-        <Text style={styles.locationTitle}>Armacost Building</Text>
-        <Text style={styles.locationDescription}>
-          The Armacost Science Building houses the departments of natural and social sciences at FCC.
-          It offers state of the art labs & research facilities including a natural history museum.
-        </Text>
+        <Text style={styles.popularLocationsTitle}>Popular Locations</Text>
+        <Text style={styles.popularLocationsDescription}>These locations are loved by FCCU!</Text>
+
+        {/* Render the list of popular locations */}
+        {/* Add your implementation here */}
       </View>
 
       {/* Rest of the screen content */}
@@ -58,21 +57,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 20,
   },
-  locationImage: {
-    width: 200,
-    height: 150,
-    marginBottom: 10,
-  },
-  locationTitle: {
-    fontSize: 16,
+  popularLocationsTitle: {
+    fontSize: 18,
     fontWeight: 'bold',
     color: '#000000',
     marginBottom: 5,
   },
-  locationDescription: {
+  popularLocationsDescription: {
     fontSize: 14,
+    fontWeight: 'normal',
     color: '#000000',
-    textAlign: 'center',
+    marginBottom: 10,
   },
 });
 
