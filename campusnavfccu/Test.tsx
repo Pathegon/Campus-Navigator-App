@@ -10,7 +10,7 @@ import BigTiles from './components/tiles/BigTiles';
 import BigTilesWithLargeDescription from './components/tiles/BigTilesWithLargeDescription';
 import ReviewsAndTestimonials from './components/ReviewsAndTestimonials';
 import ProfileHeader from './components/ProfileHeader';
-
+import Header from './components/Header';
 const Test: React.FC = () => {
   const testimonials = [
     // ...testimonials data...
