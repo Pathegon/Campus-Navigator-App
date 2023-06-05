@@ -41,21 +41,19 @@ const styles = StyleSheet.create({
     fontSize: theme.fontSizes.large,
     fontWeight: '900',
     color: theme.colors.black,
-    
     textAlign: 'left',
   },
   likesContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
   },
   likes: {
     fontFamily: 'Outfit-Regular',
     fontSize: theme.fontSizes.small,
-    color: theme.colors.grey,
+    color: theme.colors.black,
   },
   likeIcon: {
-    alignSelf: 'flex-end',
+    paddingHorizontal: 8,
   },
 });
 
