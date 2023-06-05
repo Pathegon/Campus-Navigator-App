@@ -1,13 +1,15 @@
 import React from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, TextInput } from 'react-native';
 import theme from '../theme'; // Assuming theme.js is located in the same directory as HomeScreen.js
+import CustomInput from '../components/TextBox.js'; // Assuming the renamed TextBox component is imported as CustomInput
+import LightButton from '../components/LightButton.js'; // Assuming the LightButton component file is located in the '../components' directory
 
 const HomeScreen = () => {
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
 
   const fontSize = Math.min(windowWidth / 10, windowHeight / 24) * 1.1; // Increased font size by 10%
-  const subTextFontSize = fontSize * 0.48; // Adjusted subtext font size to 80% of the original font size
+  const subTextFontSize = fontSize * 0.46; // Adjusted subtext font size to 46% of the original font size
   const marginTop = windowHeight * 0.15; // Responsive margin top calculation
 
   return (
@@ -22,6 +24,37 @@ const HomeScreen = () => {
           {'\n'}
           is our command.
         </Text>
+        <View style={styles.inputWrapper}>
+          {/* Email input */}
+          <CustomInput
+            placeholder="Enter Email"
+            onChangeText={(email) => {
+              console.log('Entered Email:', email);
+            }}
+          />
+          {/* Add spacing between inputs */}
+          <View style={styles.inputSpacing} />
+          {/* Password input */}
+          <View style={styles.passwordInput}>
+            <TextInput
+              style={styles.passwordInputText}
+              placeholder="Enter Password"
+              onChangeText={(password) => {
+                console.log('Entered Password:', password);
+              }}
+              secureTextEntry // Display input as stars
+            />
+          </View>
+          {/* Add LightButton with margin */}
+          <View style={styles.buttonMargin}>
+            <LightButton title="Login" onPress={() => console.log('Login pressed')} fontSize={18} />
+          </View>
+          {/* Not registered text */}
+          <Text style={styles.createAccountText}>
+            Not registered yet?{' '}
+            <Text style={styles.boldText}>Create Account</Text>
+          </Text>
+        </View>
       </View>
     </View>
   );
@@ -49,6 +82,39 @@ const styles = StyleSheet.create({
     color: 'black',
     marginTop: 2,
     marginLeft: 150,
+    marginBottom: 28,
+  },
+  inputWrapper: {
+    marginTop: 20, // Add margin between inputs
+  },
+  inputSpacing: {
+    height: 30, // Adjust the height as per the desired spacing
+  },
+  passwordInput: {
+    borderColor: theme.colors.grey,
+    borderWidth: 1,
+    borderRadius: 6,
+    paddingLeft: 10,
+    marginTop: 10,
+  },
+  passwordInputText: {
+    color: theme.colors.black,
+    fontSize: theme.fontSizes.medium,
+    fontFamily: 'Outfit-Regular',
+    height: 48,
+  },
+  buttonMargin: {
+    marginTop: 40, // Add margin to the LightButton
+  },
+  createAccountText: {
+    fontFamily: 'Outfit-Light',
+    color: theme.colors.grey,
+    marginTop: 40,
+    textAlign: 'center',
+  },
+  boldText: {
+    fontFamily: 'Outfit-Bold',
+    color: 'black',
   },
 });
 
