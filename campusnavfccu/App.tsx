@@ -1,31 +1,27 @@
-// App.tsx
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Test from './Test';
 import ScreenWrapper from './components/ScreenWrapper';
+import HomeScreen from './Screens/HomeScreen';
 
 const Stack = createStackNavigator();
 
 const App: React.FC = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Test">
+      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
-          name="Test"
+          name="Home"
           component={(props) => (
             <ScreenWrapper>
-              <Test {...props} />
+              <HomeScreen {...props} />
             </ScreenWrapper>
           )}
           options={{ headerShown: false }}
         />
-        {/* Add more screens here... */}
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
 
 export default App;
-
-/* XD./..*/ 
