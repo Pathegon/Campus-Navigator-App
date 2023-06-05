@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, Dimensions, TextInput } from 'react-native';
+import SQLite from 'react-native-sqlite-storage';
 import theme from '../theme'; // Assuming theme.js is located in the same directory as HomeScreen.js
 import CustomInput from '../components/TextBox.js'; // Assuming the renamed TextBox component is imported as CustomInput
 import LightButton from '../components/LightButton.js'; // Assuming the LightButton component file is located in the '../components' directory
+
+// Open the database connection
+const db = SQLite.openDatabase({ name: 'login.db' });
 
 const HomeScreen = () => {
   const windowWidth = Dimensions.get('window').width;
@@ -11,6 +15,22 @@ const HomeScreen = () => {
   const fontSize = Math.min(windowWidth / 10, windowHeight / 24) * 1.1; // Increased font size by 10%
   const subTextFontSize = fontSize * 0.46; // Adjusted subtext font size to 46% of the original font size
   const marginTop = windowHeight * 0.15; // Responsive margin top calculation
+
+  useEffect(() => {
+    // Check if the database connection is successful
+    db.transaction((tx) => {
+      tx.executeSql(
+        'SELECT 1 FROM users LIMIT 1',
+        [],
+        () => {
+          console.log('Database connected successfully!');
+        },
+        (_, error) => {
+          console.log('Database connection failed:', error);
+        }
+      );
+    });
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -47,7 +67,15 @@ const HomeScreen = () => {
           </View>
           {/* Add LightButton with margin */}
           <View style={styles.buttonMargin}>
-            <LightButton title="Login" onPress={() => console.log('Login pressed')} fontSize={18} />
+            <LightButton
+              title="Login"
+              onPress={() => {
+                const username = 'testuser'; // Replace with the actual input value
+                const password = 'testpassword'; // Replace with the actual input value
+                // Perform the actions you want to take on login
+              }}
+              fontSize={18}
+            />
           </View>
           {/* Not registered text */}
           <Text style={styles.createAccountText}>
