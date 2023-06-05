@@ -8,7 +8,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 const BigTiles = ({ title, image, description }) => {
   // Function to truncate description
   const truncateDescription = (desc, length) => {
-    return desc.length > length ? desc.substring(0, length) + "..." : desc;
+    return desc && desc.length > length ? desc.substr(0, length - 1) + '...' : desc;
   };
 
   return (
