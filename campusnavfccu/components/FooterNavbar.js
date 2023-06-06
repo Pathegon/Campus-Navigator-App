@@ -1,25 +1,21 @@
-// FooterNavbar.js
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { useNavigation } from '@react-navigation/native';
 
-const FooterNavbar = ({ navigation }) => {
+const FooterNavbar = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-        <Icon name="search" size={24} color="#fff" />
+      <TouchableOpacity onPress={() => navigation.navigate('MainScreen')}>
+        <Icon name="home" size={30} color="#fff" />
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-        <Icon name="plus-square" size={24} color="#fff" />
+      <TouchableOpacity onPress={() => navigation.navigate('SearchLocations')}>
+        <Icon name="search" size={30} color="#fff" />
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-        <Icon name="home" size={24} color="#fff" />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-        <Icon name="dashboard" size={24} color="#fff" />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-        <Icon name="user" size={24} color="#fff" />
+      <TouchableOpacity onPress={() => navigation.navigate('CreateEdit')}>
+        <Icon name="plus" size={30} color="#fff" />
       </TouchableOpacity>
     </View>
   );

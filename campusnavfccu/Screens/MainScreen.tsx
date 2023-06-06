@@ -1,8 +1,6 @@
-// MainScreen.tsx
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import ScreenWrapper from '../components/ScreenWrapper';
 import TextBox from '../components/TextBox';
 import BigTilesWithLargeDescription from '../components/tiles/BigTilesWithLargeDescription';
 import BigTiles from '../components/tiles/BigTiles';
@@ -15,80 +13,64 @@ const MainScreen: React.FC = () => {
   };
 
   return (
-    <ScreenWrapper>
-      <ScrollView>
-        <Text style={styles.title}>Campus Navigator</Text>
-        <Text style={styles.tagline}>Helping you easily navigate to FCCU. A complete solution to getting lost!</Text>
-        <View style={styles.searchContainer}>
-          <TextBox placeholder="Search for locations..." />
-          <TouchableOpacity onPress={onSearchPress} style={styles.searchIcon}>
-            <Icon name="search" size={20} color="#000" />
-          </TouchableOpacity>
-        </View>
-        <BigTilesWithLargeDescription
-          image={require('../assets/images/sample.jpg')}
-          title="Big Tile with Large Description"
-          description="Large Description"
-        />
-        <PopularLocations
-          locations={[
-            {
-              image: require('../assets/images/sample.jpg'),
-              title: 'Popular Location',
-              likes: 100,
-              onLike: () => {},
-            },
-            // Add more locations here...
-            {
-              image: require('../assets/images/sample.jpg'),
-              title: 'Popular Location',
-              likes: 100,
-              onLike: () => {},
-            },
-            {
-              image: require('../assets/images/sample.jpg'),
-              title: 'Popular Location',
-              likes: 100,
-              onLike: () => {},
-            },
-            {
-              image: require('../assets/images/sample.jpg'),
-              title: 'Popular Location',
-              likes: 100,
-              onLike: () => {},
-            },
-          ]}
-        />
-        <BigTiles
-          image={require('../assets/images/sample.jpg')}
-          title="Big Tile"
-          description="A large reptile with four legs, two arms, a long tail, a skin covered in thick, large scales in orange, red, blue and green, a wide mouth, 2 small eyes, an almost hidden nose and virtually invisible ears."
-        />
-        <BigTiles
-          image={require('../assets/images/sample.jpg')}
-          title="Big Tile"
-          description="A large reptile with four legs, two arms, a long tail, a skin covered in thick, large scales in orange, red, blue and green, a wide mouth, 2 small eyes, an almost hidden nose and virtually invisible ears."
-        />
-        <ReviewsAndTestimonials
-          testimonials={[
-            {
-              userImage: require('../assets/images/sample.jpg'),
-              userName: 'User Name',
-              rating: 5,
-              timeElapsed: '3 min ago',
-              review: 'This is a review.',
-              location: 'Location',
-            },
-            // Add more testimonials here...
-          ]}
-          layout="horizontal"
-        />
-      </ScrollView>
-    </ScreenWrapper>
+    <ScrollView style={styles.container}>
+      <Text style={styles.title}>Campus Navigator</Text>
+      <Text style={styles.tagline}>Helping you easily navigate to FCCU. A complete solution to getting lost!</Text>
+      <View style={styles.searchContainer}>
+        <TextBox placeholder="Search for locations..." />
+        <TouchableOpacity onPress={onSearchPress} style={styles.searchIcon}>
+          <Icon name="search" size={20} color="#000" />
+        </TouchableOpacity>
+      </View>
+      <BigTilesWithLargeDescription
+        image={require('../assets/images/sample.jpg')}
+        title="Big Tile with Large Description"
+        description="Large Description"
+      />
+      <PopularLocations
+        locations={[
+          {
+            image: require('../assets/images/sample.jpg'),
+            title: 'Popular Location',
+            likes: 100,
+            onLike: () => {},
+          },
+          // Add more locations here...
+        ]}
+      />
+      <BigTiles
+        image={require('../assets/images/sample.jpg')}
+        title="Big Tile"
+        description="A large reptile with four legs, two arms, a long tail, a skin covered in thick, large scales in orange, red, blue and green, a wide mouth, 2 small eyes, an almost hidden nose and virtually invisible ears."
+      />
+      <BigTiles
+        image={require('../assets/images/sample.jpg')}
+        title="Big Tile"
+        description="A large reptile with four legs, two arms, a long tail, a skin covered in thick, large scales in orange, red, blue and green, a wide mouth, 2 small eyes, an almost hidden nose and virtually invisible ears."
+      />
+      <ReviewsAndTestimonials
+        testimonials={[
+          {
+            userImage: require('../assets/images/sample.jpg'),
+            userName: 'User Name',
+            rating: 5,
+            timeElapsed: '3 min ago',
+            review: 'This is a review.',
+            location: 'Location',
+          },
+          // Add more testimonials here...
+        ]}
+        layout="horizontal"
+      />
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 10,
+  },
   title: {
     textAlign: 'center',
     fontWeight: 'bold',

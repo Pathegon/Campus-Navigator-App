@@ -1,23 +1,25 @@
-// SearchedLocations.js
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Dimensions } from 'react-native';
 import theme from '../theme';
 import SearchedLocationsTile from './tiles/SearchedLocationsTile';
+import ScreenWrapper from '../components/ScreenWrapper';
 
 const screenWidth = Dimensions.get('window').width;
 
-const SearchedLocations = ({ locations }) => {
+const SearchLocations = ({ locations }) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Searched Locations</Text>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.scrollView}>
-        {locations.map((location, index) => (
-          <View key={index} style={styles.tileContainer}>
-            <SearchedLocationsTile {...location} />
-          </View>
-        ))}
-      </ScrollView>
-    </View>
+    <ScreenWrapper>
+      <View style={styles.container}>
+        <Text style={styles.title}>Searched Locations</Text>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.scrollView}>
+          {locations.map((location, index) => (
+            <View key={index} style={styles.tileContainer}>
+              <SearchedLocationsTile {...location} />
+            </View>
+          ))}
+        </ScrollView>
+      </View>
+    </ScreenWrapper>
   );
 };
 
@@ -40,4 +42,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SearchedLocations;
+export default SearchLocations;

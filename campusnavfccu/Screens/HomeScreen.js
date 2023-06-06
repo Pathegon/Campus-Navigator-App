@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import SQLite from 'react-native-sqlite-storage';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, Dimensions, TextInput, Alert } from 'react-native';
 import theme from '../theme';
 import CustomInput from '../components/TextBox.js';
 import LightButton from '../components/LightButton.js';
 
-let db;
-
-const HomeScreen = () => {
+const HomeScreen = ({ onLogin }) => {
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
 
@@ -18,66 +15,13 @@ const HomeScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  useEffect(() => {
-    db = SQLite.openDatabase(
-      {
-        name: 'MainDB',
-        location: 'default',
-      },
-      () => {},
-      error => console.log(error),
-    );
-
-    db.transaction((tx) => {
-      tx.executeSql(
-        'CREATE TABLE IF NOT EXISTS Users (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT UNIQUE, password TEXT);',
-        [],
-        () => {},
-        (_, error) => {
-          console.log(error);
-          return false;
-        },
-      );
-
-      tx.executeSql(
-        'SELECT * FROM Users',
-        [],
-        (_, { rows: { _array } }) => {
-          // If the Users table is empty, add some initial users
-          if (_array.length === 0) {
-            tx.executeSql(
-              'INSERT INTO Users (email, password) VALUES (?, ?)',
-              ['user1@example.com', 'password1'],
-            );
-            tx.executeSql(
-              'INSERT INTO Users (email, password) VALUES (?, ?)',
-              ['user2@example.com', 'password2'],
-            );
-          }
-        },
-        (_, error) => {
-          console.log(error);
-          return false;
-        },
-      );
-    });
-  }, []);
-
   const handleLogin = () => {
-    db.transaction(tx => {
-      tx.executeSql(
-        `SELECT * FROM Users WHERE email = ? AND password = ?`, // Use 'Users' instead of 'users'
-        [email, password],
-        (tx, results) => {
-          if (results.rows.length > 0) {
-            Alert.alert('Failure', 'Invalid email or password');
-          } else {
-            Alert.alert('Sucess', 'You Are Logged in');
-          }
-        },
-        error => { console.log(error); }
-      );
-    });
+    if (email === 'admin@gmail.com' && password === 'admin') {
+      Alert.alert('Success', 'You Are Logged in');
+      onLogin();
+    } else {
+      Alert.alert('Failure', 'Invalid email or password');
+    }
   };
   
   return (
@@ -150,12 +94,7 @@ const styles = StyleSheet.create({
     color: 'black',
     marginTop: 2,
     marginLeft: 150,
-    marginBottom: 28,
-  },
-  inputWrapper: {
-    marginTop: 20,
-  },
-  inputSpacing: {
+    marginBottom: 20,
     height: 30,
   },
   passwordInput: {
