@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import theme from '../../theme';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import LightButton from '../LightButton';
 
 const SearchedLocationsTile = ({ title, category, address, reviews, onPress }) => {
   return (
@@ -20,10 +21,8 @@ const SearchedLocationsTile = ({ title, category, address, reviews, onPress }) =
           <Text style={styles.reviews}>{reviews} Reviews</Text>
         </View>
       </View>
-      <View style={styles.findButtonContainer}>
-        <TouchableOpacity onPress={onPress} style={styles.findButton}>
-          <Text style={styles.findButtonText}>Find</Text>
-        </TouchableOpacity>
+      <View style={styles.buttonContainer}>
+        <LightButton title="Find" onPress={onPress} style={styles.buttonz} />
       </View>
     </View>
   );
@@ -80,23 +79,14 @@ const styles = StyleSheet.create({
     color: theme.colors.black,
     marginLeft: 10,
   },
-  findButtonContainer: {
+  buttonContainer: {
     position: 'absolute',
     right: 10,
     bottom: 10,
   },
-  findButton: {
-    width: 90,
-    height: 30,
-    backgroundColor: theme.colors.primary,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 5,
-  },
-  findButtonText: {
-    fontFamily: 'Outfit-Regular',
-    fontSize: 14,
-    color: theme.colors.white,
+  buttonz: {
+    width: 74,
+    alignSelf: 'flex-end',
   },
 });
 
