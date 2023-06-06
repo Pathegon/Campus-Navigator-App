@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import theme from '../theme';
 import ReviewsAndTestimonials from '../components/ReviewsAndTestimonials';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Details = ({ route }) => {
   const { location } = route.params;
@@ -15,46 +16,52 @@ const Details = ({ route }) => {
             <Text style={styles.category}>{location.category}</Text>
           </View>
           <View style={styles.addressContainer}>
+            <Icon name="map-marker" size={10} color={theme.colors.black} />
             <Text style={styles.address}>{location.address}</Text>
           </View>
           <View style={styles.reviewsContainer}>
+            <Icon name="star" size={10} color={theme.colors.black} />
             <Text style={styles.reviews}>{location.reviews} Reviews</Text>
           </View>
         </View>
-        <Image source={require('../assets/images/compass.png')} style={styles.image} />
+        <Image source={require('../assets/images/image1.png')} style={styles.image} />
       </View>
+
+      <View style={styles.separator} />
 
       <Text style={styles.heading}>Location Details</Text>
       <View style={styles.detailsContainer}>
         <View style={styles.row}>
-          <Text style={styles.label}>Location Name:</Text>
+          <Text style={styles.label}>Location Name</Text>
           <Text style={styles.value}>{location.title}</Text>
         </View>
         <View style={styles.row}>
-          <Text style={styles.label}>Primary Purpose:</Text>
+          <Text style={styles.label}>Primary Purpose</Text>
           <Text style={styles.value}>Purpose Value</Text>
         </View>
         <View style={styles.row}>
-          <Text style={styles.label}>Reviews:</Text>
+          <Text style={styles.label}>Reviews</Text>
           <Text style={styles.value}>{location.reviews}</Text>
         </View>
         <View style={styles.row}>
-          <Text style={styles.label}>Average Pricing:</Text>
+          <Text style={styles.label}>Average Pricing</Text>
           <Text style={styles.value}>Pricing Value</Text>
         </View>
         <View style={styles.row}>
-          <Text style={styles.label}>Air Conditioned:</Text>
+          <Text style={styles.label}>Air Conditioned</Text>
           <Text style={styles.value}>Yes</Text>
         </View>
         <View style={styles.row}>
-          <Text style={styles.label}>Disability Friendly:</Text>
+          <Text style={styles.label}>Disability Friendly</Text>
           <Text style={styles.value}>Yes</Text>
         </View>
         <View style={styles.row}>
-          <Text style={styles.label}>Building Number:</Text>
+          <Text style={styles.label}>Building Number</Text>
           <Text style={styles.value}>Building Number Value</Text>
         </View>
       </View>
+
+      <View style={styles.separator} />
 
       <ReviewsAndTestimonials testimonials={[]} layout={1} />
     </View>
@@ -80,23 +87,26 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: 'Outfit-Bold',
-    fontSize: 20,
+    fontSize: 18,
     color: theme.colors.black,
   },
   category: {
-    fontFamily: 'Outfit-Thin',
-    fontSize: 16,
+    marginTop: 10,
+    fontFamily: 'Outfit-Regular',
+    fontSize: 12,
     color: theme.colors.grey,
   },
   addressContainer: {
+    marginTop: 20,
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 5,
   },
   address: {
     fontFamily: 'Outfit-Regular',
-    fontSize: 16,
+    fontSize: 12,
     color: theme.colors.black,
+    marginLeft: 10,
   },
   reviewsContainer: {
     flexDirection: 'row',
@@ -105,14 +115,20 @@ const styles = StyleSheet.create({
   },
   reviews: {
     fontFamily: 'Outfit-Regular',
-    fontSize: 16,
+    fontSize: 12,
     color: theme.colors.black,
     marginLeft: 5,
   },
   image: {
-    width: '20%',
-    aspectRatio: 1,
-    marginLeft: 15,
+    width: 150,
+    height: 150,
+    alignSelf: 'flex-end',
+    marginLeft: -30,
+  },
+  separator: {
+    height: 1,
+    backgroundColor: '#E8E8E8',
+    marginVertical: 20,
   },
   heading: {
     fontFamily: 'Outfit-Bold',
@@ -132,13 +148,13 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   label: {
-    fontFamily: 'Outfit-Bold',
-    fontSize: 16,
+    fontFamily: 'Outfit-Regular',
+    fontSize: 14,
     color: theme.colors.black,
   },
   value: {
-    fontFamily: 'Outfit-Regular',
-    fontSize: 16,
+    fontFamily: 'Outfit-Bold',
+    fontSize: 14,
     color: theme.colors.black,
   },
 });
