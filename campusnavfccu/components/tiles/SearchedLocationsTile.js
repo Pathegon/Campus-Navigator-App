@@ -20,11 +20,11 @@ const SearchedLocationsTile = ({ title, category, address, reviews, onPress }) =
           <Text style={styles.reviews}>{reviews} Reviews</Text>
         </View>
       </View>
-      <TouchableOpacity onPress={onPress}>
-        <View style={styles.findButton}>
+      <View style={styles.findButtonContainer}>
+        <TouchableOpacity onPress={onPress} style={styles.findButton}>
           <Text style={styles.findButtonText}>Find</Text>
-        </View>
-      </TouchableOpacity>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -80,6 +80,11 @@ const styles = StyleSheet.create({
     color: theme.colors.black,
     marginLeft: 10,
   },
+  findButtonContainer: {
+    position: 'absolute',
+    right: 10,
+    bottom: 10,
+  },
   findButton: {
     width: 90,
     height: 30,
@@ -87,9 +92,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 5,
-    position: 'absolute',
-    right: 10,
-    bottom: 10,
   },
   findButtonText: {
     fontFamily: 'Outfit-Regular',
