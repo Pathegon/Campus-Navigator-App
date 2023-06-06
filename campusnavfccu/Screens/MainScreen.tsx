@@ -23,15 +23,35 @@ const MainScreen: React.FC = () => {
         </TouchableOpacity>
       </View>
       <BigTilesWithLargeDescription
-        image={require('../assets/images/sample.jpg')}
-        title="Big Tile with Large Description"
-        description="Large Description"
+        image={require('../assets/images/armacost.jpg')}
+        title="Armacost Building"
+        description="The Armacost Science Building houses the departments of natural and social sciences at FCC. 
+
+        It offers state of the art labs & research facilities including a natural history museum."
       />
       <PopularLocations
         locations={[
           {
-            image: require('../assets/images/sample.jpg'),
-            title: 'Popular Location',
+            image: require('../assets/images/nblock.jpg'),
+            title: 'N Block',
+            likes: 101,
+            onLike: () => {},
+          },
+          {
+            image: require('../assets/images/lucas.jpg'),
+            title: 'Lucas Cafe',
+            likes: 100,
+            onLike: () => {},
+          },
+          {
+            image: require('../assets/images/pool.jpg'),
+            title: 'Swimming Pool',
+            likes: 100,
+            onLike: () => {},
+          },
+          {
+            image: require('../assets/images/eblock.jpg'),
+            title: 'E Block',
             likes: 100,
             onLike: () => {},
           },
@@ -39,14 +59,14 @@ const MainScreen: React.FC = () => {
         ]}
       />
       <BigTiles
-        image={require('../assets/images/sample.jpg')}
-        title="Big Tile"
-        description="A large reptile with four legs, two arms, a long tail, a skin covered in thick, large scales in orange, red, blue and green, a wide mouth, 2 small eyes, an almost hidden nose and virtually invisible ears."
+        image={require('../assets/images/sinclair-hall.jpg')}
+        title="Sinclair Hall"
+        description="Sinclair Hall was inaugurated as the first auditorium on campus."
       />
       <BigTiles
-        image={require('../assets/images/sample.jpg')}
-        title="Big Tile"
-        description="A large reptile with four legs, two arms, a long tail, a skin covered in thick, large scales in orange, red, blue and green, a wide mouth, 2 small eyes, an almost hidden nose and virtually invisible ears."
+        image={require('../assets/images/botanical.jpg')}
+        title="Botanical Gardens"
+        description="Botanic Gardens of Forman Christian College cover an area of seven acres and include wide diversity of native and exotic flora."
       />
       <ReviewsAndTestimonials
         testimonials={[

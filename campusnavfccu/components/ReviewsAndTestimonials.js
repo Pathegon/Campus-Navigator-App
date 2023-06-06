@@ -5,7 +5,7 @@ import Testimonial from './Testimonial';
 
 const ReviewsAndTestimonials = ({ layout }) => {
   const testimonials = [
-    { name: 'John', review: 'Great place to visit!', rating: 4.5, image: require('../assets/images/testimonial1.png') },
+    { name: 'John', review: 'Great place to visit!', rating: 4.5, image: require('../assets/images/sample.jpg') },
     { name: 'Sarah', review: 'Highly recommended!', rating: 5, image: require('../assets/images/testimonial2.png') },
     { name: 'David', review: 'Amazing experience!', rating: 4, image: require('../assets/images/testimonial3.png') },
   ];

@@ -5,11 +5,11 @@ import SearchedLocationsTile from '../components/tiles/SearchedLocationsTile';
 import theme from '../theme';
 
 const locationsData = [
-  { title: 'Location 1', category: 'Category 1', address: 'Address 1', reviews: 20 },
-  { title: 'Location 2', category: 'Category 2', address: 'Address 2', reviews: 50 },
-  { title: 'Location 3', category: 'Category 3', address: 'Address 3', reviews: 35 },
-  { title: 'Location 4', category: 'Category 4', address: 'Address 4', reviews: 35 },
-  { title: 'Location 5', category: 'Category 5', address: 'Address 5', reviews: 35 },
+  { title: 'Armacost Building', category: 'Study Centers', address: 'Address 1', reviews: 20 },
+  { title: 'Ewing Memorial Library', category: 'Knowledge Hub', address: 'Address 2', reviews: 50 },
+  { title: 'London Bridge', category: 'A Smokers Paradise' , address: 'Address 3', reviews: 35 },
+  { title: 'Lucas Cafe', category: 'Food', address: 'Address 4', reviews: 35 },
+  { title: 'Secret Hideout Spot', category: 'Shhh', address: 'Address 5', reviews: 35 },
   // Add more dummy data as needed
 ];
 
